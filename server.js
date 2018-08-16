@@ -12,8 +12,13 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
+//router restaurants
 const restaurantRoutes = require('./routes/Restaurant.routes');
 app.use('/api/restaurants', restaurantRoutes);
+
+//router foods
+const foodsRoutes = require('./routes/Foods.routes');
+app.use('/api/foods', foodsRoutes);
 
 const port = process.env.PORT | 8000;
 

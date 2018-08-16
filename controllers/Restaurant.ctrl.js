@@ -38,7 +38,7 @@ module.exports = {
     });
   },
   getFoods: (req, res) => {
-    Foods.find({ restautant_id: req.params.id }, (err, done) => {
+    Foods.find({ restaurant_id: req.params.id }, (err, done) => {
       if (err) throw err;
       res.send(done);
     });
@@ -46,7 +46,7 @@ module.exports = {
   storeFoods: (req, res) => {
     const foods = {
       ...req.body,
-      restautant_id: req.params.id
+      restaurant_id: req.params.id
     };
     Foods.create(foods, (err, done) => {
       if (err) throw err;
