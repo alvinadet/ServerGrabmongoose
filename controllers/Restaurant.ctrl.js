@@ -33,7 +33,9 @@ module.exports = {
   delete: (req, res) => {
     Restaurant.findByIdAndRemove(req.params.id, (err, done) => {
       if (err) throw err;
-      res.statusCode = 200;
+    });
+    Foods.findOneAndRemove(req.params.restaurant_id, (err, done) => {
+      if (err) throw err;
       return res.send('success delete');
     });
   },

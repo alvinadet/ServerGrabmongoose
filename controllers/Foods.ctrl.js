@@ -7,6 +7,13 @@ module.exports = {
       return res.send(done);
     });
   },
+  detail: (req, res) => {
+    Foods.findById(req.params.id, (err, done) => {
+      if (err) throw err;
+      res.statusCode = 200;
+      return res.send(done);
+    });
+  },
   update: (req, res) => {
     Foods.findByIdAndUpdate(req.params.id, req.body, (err, done) => {
       if (err) throw err;
@@ -17,7 +24,7 @@ module.exports = {
   delete: (req, res) => {
     Foods.findByIdAndRemove(req.params.id, (err, done) => {
       if (err) throw err;
-      res.statusCode = 200;
+
       return res.send('Berhasil dihapus');
     });
   }
